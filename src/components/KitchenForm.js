@@ -22,10 +22,11 @@ class KitchenForm extends Component {
 
     submit = (e) => {
         e.preventDefault();
-        axios.post('/api/kitchen', { response: this.state })
+        console.log(this.state);
+        axios.post('/api/kitchen/',  this.state )
         .then(response => {
             console.log('success!');
-        }).catch(error => console.log(error));
+        }).catch(error => console.log(error))
     }
 
     render(){

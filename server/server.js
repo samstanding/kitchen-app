@@ -4,10 +4,11 @@ require('dotenv').config();
 const app = express();
 
 const bodyParser = require('body-parser');
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
 
 const kitchenRouter = require('./routes/kitchen.router');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/api/kitchen', kitchenRouter);
 
