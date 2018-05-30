@@ -42,6 +42,7 @@ class KitchenForm extends Component {
             email: '',
             name: '',
             option: '',
+            mOption: '',
         }
     }
 
@@ -67,7 +68,64 @@ class KitchenForm extends Component {
 
     render(){
         const { classes } = this.props;
+        let abc;
+        let def;
+        let ghi;
 
+        if (this.state.option === 'option 1') {
+            abc = (
+                <FormControl component="fieldset" required className={classes.formControl}>
+                <FormLabel component="legend">More Options</FormLabel>
+                <RadioGroup
+                            aria-label="option"
+                            name="Secondary Otions"
+                            className={classes.group}
+                            value={this.state.mOption}
+                            onChange={this.handleChangeFor('mOption')}
+                        >
+                            <FormControlLabel value="option A" control={<Radio />} label="Option A" />
+                            <FormControlLabel value="option B" control={<Radio />} label="Option B" />
+                            <FormControlLabel value="option C" control={<Radio />} label="Option C" />
+                        </RadioGroup>
+                </FormControl>     
+            );
+        } 
+        if (this.state.option === 'option 2') {
+            def = (
+                <FormControl component="fieldset" required className={classes.formControl}>
+                <FormLabel component="legend">More Options</FormLabel>
+                <RadioGroup
+                            aria-label="option"
+                            name="Secondary Otions"
+                            className={classes.group}
+                            value={this.state.mOption}
+                            onChange={this.handleChangeFor('mOption')}
+                        >
+                            <FormControlLabel value="option D" control={<Radio />} label="Option D" />
+                            <FormControlLabel value="option E" control={<Radio />} label="Option E" />
+                            <FormControlLabel value="option F" control={<Radio />} label="Option F" />
+                        </RadioGroup>
+                </FormControl>   
+            );
+        } 
+        if (this.state.option === 'option 3') {
+            ghi = (
+                <FormControl component="fieldset" required className={classes.formControl}>
+                <FormLabel component="legend">More Options</FormLabel>
+                <RadioGroup
+                            aria-label="option"
+                            name="Secondary Otions"
+                            className={classes.group}
+                            value={this.state.mOption}
+                            onChange={this.handleChangeFor('mOption')}
+                        >
+                            <FormControlLabel value="option G" control={<Radio />} label="Option G" />
+                            <FormControlLabel value="option H" control={<Radio />} label="Option H" />
+                            <FormControlLabel value="option I" control={<Radio />} label="Option I" />
+                        </RadioGroup>
+                </FormControl>   
+            );
+        }
         return (
             <div className="form">
                 <form onSubmit={this.submit}>
@@ -97,8 +155,11 @@ class KitchenForm extends Component {
                             onChange={this.handleChangeFor('option')}
                         >
                             <FormControlLabel value="option 1" control={<Radio />} label="Option 1" />
+                            {abc}
                             <FormControlLabel value="option 2" control={<Radio />} label="Option 2" />
+                            {def}
                             <FormControlLabel value="option 3" control={<Radio />} label="Option 3" />
+                            {ghi}
                         </RadioGroup>
                     </FormControl>
                     <br/>

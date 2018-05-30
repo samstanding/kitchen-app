@@ -5,7 +5,12 @@ const router = express.Router();
 
 router.post('/', (req, res) => {
     console.log(req.body);
-    base('Table 1').create({Email: req.body.email, Name: req.body.name, Option: req.body.option }, function(err, record) {
+    base('Table 1').create({
+        Email: req.body.email, 
+        Name: req.body.name, 
+        Option: req.body.option, 
+        mOption: req.body.mOption }, 
+        function(err, record) {
         if (err) { 
             console.error('error:', err); 
             res.sendStatus(500);
