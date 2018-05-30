@@ -9,6 +9,7 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import Button from '@material-ui/core/Button';
 
+
 const styles = theme => ({
     container: {
       display: 'flex',
@@ -24,7 +25,7 @@ const styles = theme => ({
       width: 200,
     },
     formControl: {
-        margin: theme.spacing.unit * 3,
+        margin: theme.spacing.unit * 1.5,
       },
     group: {
         margin: `${theme.spacing.unit}px 0`,
@@ -32,6 +33,12 @@ const styles = theme => ({
     button: {
         margin: theme.spacing.unit,
       },
+    root: {
+        flexGrow: 1,
+      },
+    break : {
+        padding: 5,
+    }
   });
 
 class KitchenForm extends Component {
@@ -63,6 +70,7 @@ class KitchenForm extends Component {
             email: '',
             name: '',
             option: '',
+            mOption: '',
         })
     }
 
@@ -127,7 +135,7 @@ class KitchenForm extends Component {
             );
         }
         return (
-            <div className="form">
+            <div className={classes.root}>
                 <form onSubmit={this.submit}>
                     <TextField 
                         type="text" 
@@ -162,7 +170,7 @@ class KitchenForm extends Component {
                             {ghi}
                         </RadioGroup>
                     </FormControl>
-                    <br/>
+                    <br className={classes.break}/>
                     <Button onClick={this.submit} variant="raised" color="primary" className={classes.button}>Submit</Button>
                 </form>
             </div>
