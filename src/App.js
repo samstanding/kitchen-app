@@ -11,7 +11,6 @@ class App extends Component {
           <h1 className="App-title">Welcome to The Kitchen</h1>
         </header>
         <br/>
-
        <KitchenForm/>
       </div>
     );
