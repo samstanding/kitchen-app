@@ -5,11 +5,13 @@ const router = express.Router();
 
 router.post('/', (req, res) => {
     console.log(req.body);
-    base('Table 1').create({
+    base('Table').create({
         Email: req.body.email, 
         Name: req.body.name, 
-        Option: req.body.option, 
-        mOption: req.body.mOption }, 
+        WallLength: req.body.wallLength, 
+        DesiredHeight: req.body.desiredHeight,
+        SinkFromWall: req.body.sinkFromWall,
+        Range: req.body.range }, 
         function(err, record) {
         if (err) { 
             console.error('error:', err); 
