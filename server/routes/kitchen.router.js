@@ -8,10 +8,10 @@ router.post('/', (req, res) => {
     base('Table').create({
         Email: req.body.email, 
         Name: req.body.name, 
-        WallLength: req.body.wallLength, 
-        DesiredHeight: req.body.desiredHeight,
-        SinkFromWall: req.body.sinkFromWall,
-        Range: req.body.range }, 
+        WallLength: parseFloat(req.body.wallLength), 
+        DesiredHeight: parseFloat(req.body.desiredHeight),
+        SinkFromWall: parseFloat(req.body.sinkFromWall),
+        Range: parseFloat(req.body.range) }, 
         function(err, record) {
         if (err) { 
             console.error('error:', err); 
