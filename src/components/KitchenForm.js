@@ -64,22 +64,26 @@ class KitchenForm extends Component {
 
     submit = (e) => {
         e.preventDefault();
-        axios.post('/api/kitchen/',  this.state )
-        .then(response => {
-            alert('measurements saved successfully');
-            this.setState({
-                email: '',
-                name: '',
-                wallLength: 20,
-                desiredHeight: 3,
-                sinkFromWall: 5,
-                range: 10,
+        if (Object.keys(this.state).every(key => this.state[key].toString().length > 0)) {
+            axios.post('/api/kitchen/', this.state)
+            .then(response => {
+                alert('measurements saved successfully');
+                this.setState({
+                    email: '',
+                    name: '',
+                    wallLength: 20,
+                    desiredHeight: 3,
+                    sinkFromWall: 5,
+                    range: 10,
+                })
             })
-        })
-        .catch(error => {
-            console.log(error);
-            alert('measurements unsuccessful. please try again');
-        })
+            .catch(error => {
+                console.log(error);
+                alert('measurements unsuccessful. please try again');
+            })
+        } else {
+            alert('no fields should be blank!');
+        }
     }
 
     render(){
@@ -89,7 +93,6 @@ class KitchenForm extends Component {
             <div className={classes.root}>
                 <form onSubmit={this.submit} noValidate>
                         <TextField 
-                            required
                             type="text" 
                             className={classNames(classes.textField, classes.margin)}
                             placeholder="name" 
@@ -98,7 +101,6 @@ class KitchenForm extends Component {
                         />
                         <br/>
                         <TextField 
-                            required
                             type="email" 
                             className={classes.textField}
                             placeholder="email" 
